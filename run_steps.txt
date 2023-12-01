@@ -1,0 +1,5 @@
+訓練:
+yolo task=detect mode=train model=yolov8s.yaml/yolov8s.pt data=coco_pipe.yaml epochs=300 batch=16 pretrained=False optimizer=SGD device='0'
+
+偵測:
+yolo task=detect mode=predict model=best.pt source=dataset/valid/images save=true device='0'
