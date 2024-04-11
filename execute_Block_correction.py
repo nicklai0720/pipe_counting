@@ -81,10 +81,10 @@ class Seafoam(Base):
 
 def authenticate(username, password):
     connection = pymssql.connect(
-        host="10.3.96.168",
-        user="N000184123",
-        password="N000184123@npc",
-        database="3033"
+        host="",
+        user="",
+        password="",
+        database=""
     )
     cursor = connection.cursor()
 
@@ -115,10 +115,10 @@ def insert_data_to_sql(image, result, total, label_txt, username):
     # BLOB format
 
     connection = pymssql.connect(
-        host="10.3.96.168",
-        user="N000184123",
-        password="N000184123@npc",
-        database="3033"
+        host="",
+        user="",
+        password="",
+        database=""
     )
     cursor = connection.cursor()
 
@@ -249,11 +249,6 @@ def detect_objects_on_image(image_path, username: gr.Request):
     # insert data to MS SQL Server
     insert_data_to_sql((BinaryData, ), byte_result_encode, total, label_txt, user)
 
-    # print('image path:', image_path)  # C:\Users\N00018~1\AppData\Local\Temp\gradio\ba3ebe9dff311c2824c9a53ccbfcbed90d79eb98\image.png
-    # print('image:', image)  # [[[ 88 113  83]]] array
-    # print('blob_image:', image.tobytes())
-    # print('Total pipe:', total)
-
     global global_total
     global_total = total
 
@@ -298,10 +293,10 @@ def change_subbtn(files):
 
 def return_value(x, username: gr.Request):
     connection = pymssql.connect(
-        host="10.3.96.168",
-        user="N000184123",
-        password="N000184123@npc",
-        database="3033"
+        host="",
+        user="",
+        password="",
+        database=""
     )
     cursor = connection.cursor()
 
@@ -374,10 +369,10 @@ def search_value(sub, usernmame: gr.Request):
     connection.close()
 
     # connection = pymssql.connect(
-    #     host="10.3.96.168",
-    #     user="N000184123",
-    #     password="N000184123@npc",
-    #     database="3033"
+    #     host="",
+    #     user="",
+    #     password="",
+    #     database=""
     # )
     # cursor = connection.cursor()
     # table_name_2 = 'detect_pipe_user'
@@ -398,10 +393,10 @@ def search_value(sub, usernmame: gr.Request):
 
 def search_id_list(sub, user):
     connection = pymssql.connect(
-        host="10.3.96.168",
-        user="N000184123",
-        password="N000184123@npc",
-        database="3033"
+        host="",
+        user="",
+        password="",
+        database=""
     )
     cursor = connection.cursor()
     table_name = 'detect_data'
@@ -444,10 +439,10 @@ def update_image_dropdown(x):
     image_id = x
 
     connection = pymssql.connect(
-        host="10.3.96.168",
-        user="N000184123",
-        password="N000184123@npc",
-        database="3033"
+        host="",
+        user="",
+        password="",
+        database=""
     )
 
     cursor = connection.cursor()
@@ -488,8 +483,8 @@ dropdown, js = create_theme_dropdown()
 with gr.Blocks(theme=seafoam) as detect_demo:
     with gr.Row():
         with gr.Column():
-            gr.Markdown("# 南亞塑膠硬管自動計數")
-            gr.Markdown('## 開發者: 嘉義一廠 賴烱庭 (N000184910)')
+            gr.Markdown("")
+            gr.Markdown('')
         with gr.Column():
             user_show = gr.Markdown(value="No User")
             toggle_dark_p1 = gr.Button(value="淺色/深色模式")
@@ -540,8 +535,8 @@ with gr.Blocks(theme=seafoam) as detect_demo:
 with gr.Blocks(theme=seafoam) as demonstrate_demo:
     with gr.Row():
         with gr.Column():
-            gr.Markdown("# 南亞塑膠硬管自動計數")
-            gr.Markdown('## 開發者: 嘉義一廠 賴烱庭 (N000184910)')
+            gr.Markdown("")
+            gr.Markdown('')
         with gr.Column():
             user_show_second = gr.Markdown(value="No User")
             toggle_dark_p2 = gr.Button(value="淺色/深色模式")
